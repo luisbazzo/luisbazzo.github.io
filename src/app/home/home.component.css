@@ -109,3 +109,7 @@
     background: var(--bg-color);
     opacity: 0.8;
 }
+
+.home-content h1 span{
+    color: var(--text-color);
+}
