@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit{
   // navLinks = document.querySelectorAll('header nav a');
 
   ngOnInit(): void {
+    this.toggleMenuIcon();
     let sections = getSections();
     let navLinks = document.querySelectorAll('header nav a');
 
@@ -32,6 +33,21 @@ export class HeaderComponent implements OnInit{
           });
         }
       });  
+    };
+  }
+
+  toggleMenuIcon(){
+    let menuIcon = document.querySelector('#menu-icon') as HTMLElement;
+    let navbar = document.querySelector('.navbar') as HTMLElement;
+
+    menuIcon.onclick = () => {
+      menuIcon.classList.toggle('bx-x');
+      navbar.classList.toggle('active');
+    };
+
+    navbar.onclick = () => {
+      menuIcon.classList.remove('bx-x');
+      navbar.classList.remove('active');
     };
   }
 }

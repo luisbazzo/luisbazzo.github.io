@@ -89,3 +89,9 @@ span{
 .education-content .content:hover::before{
     width: 100%;
 }
+
+@media (max-width: 462px){
+    .education{
+        padding: 10rem 4% 5rem 5%;
+    }
+}
