@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getSections } from '../sections/sections.component';
+import { getFooter } from '../footer/footer.component';
 
 @Component({
   selector: 'app-header',
@@ -31,8 +32,18 @@ export class HeaderComponent implements OnInit{
             let doc = document.querySelector('header nav a[href*=' + id + ']') as HTMLElement;
             doc.classList.add('active');
           });
+
+          sec.classList.add('show-animate');
         }
-      });  
+        else{
+          sec.classList.remove('show-animate');
+        }
+      }); 
+
+      let footer = getFooter();
+      let scrollH = document.scrollingElement as HTMLElement;
+
+      footer.classList.toggle('show-animate', window.innerHeight + window.scrollY >= scrollH.scrollHeight);
     };
   }
 

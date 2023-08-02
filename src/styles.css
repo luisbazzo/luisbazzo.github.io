@@ -83,9 +83,54 @@ section{
 }
 
 .heading{
+    position: relative;
     font-size: 5rem;
     margin-bottom: 3rem;
     text-align: center;
+}
+
+.animate{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 88;
+}
+
+.about .animate.scroll,
+.skills .animate.scroll,
+.footer .animate.scroll{
+    background: var(--second-bg-color);
+}
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate{
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animate.scroll{
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+}
+
+.education .education-box .animate.scroll{
+    width: 105%;
+}
+
+.about.show-animate .animate.scroll,
+.education.show-animate .animate.scroll,
+.education.show-animate .education-box .animate.scroll,
+.skills.show-animate .animate.scroll,
+.contact.show-animate .animate.scroll,
+.footer.show-animate .animate.scroll{
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
 }
 
 @media (max-width: 1200px){
@@ -103,5 +148,11 @@ section{
 @media (max-width: 520px){
     html{
         font-size: 50%;
+    }
+}
+
+@keyframes showRight{
+    100%{
+        width: 0;
     }
 }
